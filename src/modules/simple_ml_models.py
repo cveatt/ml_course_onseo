@@ -7,7 +7,7 @@ class HousePriceModel:
             "B": 50,
             "C": 10,
         }
-    def __call__(self, area: int, n_floors: int, heating: str):
+    def __call__(self, area: float, n_floors: int, heating: str):
         return 100 * n_floors +5 * area + self.heating_map.get(heating, 0)
 
 
@@ -31,4 +31,8 @@ class SentimentModel:
             if key in lower_text:
                 total_score += val
 
-        return 1 if total_score > 0 else 0 if total_score == 0 else -1
+        sentiment =  "positive" if total_score > 0 else "neutral" if total_score == 0 else "negative"
+        return {
+            "sentiment": sentiment,
+            "score": total_score,
+        }
