@@ -3,8 +3,9 @@ import logging
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from .modules.api_data_models import Message, HouseInfo, HousePrice
-from .modules.simple_ml_models import HousePriceModel
+from src.modules.simple_ml_models import HousePriceModel
+
+from .modules.data_models import Message, RequestHouseParams, ResponseHousePrice
 
 
 DEFAULT_RESPONSES = {
@@ -29,17 +30,17 @@ def health():
     return Message(message="Success.")
 
 
-@app.post("/api/v1/predict", response_model=HousePrice, responses={**DEFAULT_RESPONSES})
-def predict(house_info: HouseInfo):
-    logger.info("Predict.")
+@app.post("/api/v1/house_price", response_model=ResponseHousePrice, responses={**DEFAULT_RESPONSES})
+def house_price(house_params: RequestHouseParams):
+    logger.info("Price.")
 
     try:
         price = app.model(
-            n_floors=house_info.n_floors, 
-            area=house_info.area, 
-            heating=house_info.heating,
+            area=house_params.area,
+            n_floors=house_params.n_floors, 
+            heating=house_params.heating,
         )
-        return HousePrice(price=price)
+        return ResponseHousePrice(price=price)
 
     except Exception as exception:
         logger.exception(str(exception))
