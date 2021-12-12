@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 
 from src.modules.simple_ml_models import SentimentModel
 
-from .modules.data_models import Message, RequestText, ResponseSentiment
+from .modules.api_data_models import Message, RequestText, ResponseSentiment
 
 
 DEFAULT_RESPONSES = {

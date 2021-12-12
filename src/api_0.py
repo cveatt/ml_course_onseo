@@ -3,7 +3,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-from .modules.api_data_models import Message, CalcRequest, CalcResponse
+from .modules.api_data_models import Message, RequestCalc, ResponseCalc
 
 
 DEFAULT_RESPONSES = {
@@ -27,26 +27,26 @@ def health():
     return Message(message="Success.")
 
 
-@app.post("/api/v1/sum", response_model=CalcResponse, responses={**DEFAULT_RESPONSES})
-def calculate_sum(sum_request: CalcRequest):
+@app.post("/api/v1/sum", response_model=ResponseCalc, responses={**DEFAULT_RESPONSES})
+def calculate_sum(sum_request: RequestCalc):
     logger.info("Sum.")
 
     try:
         result = sum_request.a + sum_request.b
-        return CalcResponse(result=result)
+        return ResponseCalc(result=result)
 
     except Exception as exception:
         logger.exception(str(exception))
         return JSONResponse(status_code=500, content={"message": str(exception)})
 
 
-@app.post("/api/v1/div", response_model=CalcResponse, responses={**DEFAULT_RESPONSES})
-def calculate_div(sum_request: CalcRequest):
+@app.post("/api/v1/div", response_model=ResponseCalc, responses={**DEFAULT_RESPONSES})
+def calculate_div(sum_request: RequestCalc):
     logger.info("Div.")
 
     try:
         result = sum_request.a / sum_request.b
-        return CalcResponse(result=result)
+        return ResponseCalc(result=result)
 
     except Exception as exception:
         logger.exception(str(exception))

@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 
 from src.modules.simple_ml_models import HousePriceModel
 
-from .modules.data_models import Message, RequestHouseParams, ResponseHousePrice
+from .modules.api_data_models import Message, RequestHouseParams, ResponseHousePrice
 
 
 DEFAULT_RESPONSES = {
