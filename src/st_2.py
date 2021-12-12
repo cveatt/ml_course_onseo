@@ -9,7 +9,7 @@ def load_model():
     return SentimentModel()
 
 
-    if __name__ == "__main__":
+if __name__ == "__main__":
         sentiment_model = load_model()
         sentiment_map = {
             1: "Positive",
