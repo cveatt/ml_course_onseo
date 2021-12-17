@@ -10,10 +10,6 @@
 > docker run -p 8001:8000 fastapi_service
 
 > docker build -t dev_ml_course -f Dockerfile.dev .
+> docker run -it -v C:/ml_course_onseo/:/app/ dev_ml_course /bin/bash
 
-<<<<<<< HEAD
-> docker run -it -v C:/ml_course_onseo/:/app/ dev_ml_course /bin/bash
-=======
-> docker run -it -v C:/ml_course_onseo/:/app/ dev_ml_course /bin/bash
->>>>>>> bd8e54e6dbcc9691c807cf58f9459ca130ec7ded
 
