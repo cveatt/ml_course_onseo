@@ -4,8 +4,8 @@ stages:
     cmd: python src_dvc/split.py
     deps:
     - path: resources/data.txt
-      md5: 7ca64e798aab16891e49a4e4c90b53df
-      size: 32
+      md5: dfd0c26ac9bf881ceb1961dd8b589950
+      size: 48
     - path: src_dvc/split.py
       md5: 1b604e03063f563c9e60b158169f8696
       size: 556
@@ -16,17 +16,17 @@ stages:
           valid_size: 0.2
     outs:
     - path: resources/test.txt
-      md5: 0d872534a672ff0d6162ad055e1a5d5d
-      size: 18
+      md5: bbc892ccebc2a459a6b02c9890bdcaed
+      size: 26
     - path: resources/train.txt
-      md5: 3decbdeb286c9aca07ab9708aab1615e
-      size: 16
+      md5: 4b6df6cf71948e37e5e550bf9be8a0d2
+      size: 24
   train:
     cmd: python src_dvc/train.py
     deps:
     - path: resources/train.txt
-      md5: 3decbdeb286c9aca07ab9708aab1615e
-      size: 16
+      md5: 4b6df6cf71948e37e5e550bf9be8a0d2
+      size: 24
     - path: src_dvc/train.py
       md5: 51b7be03e2703e81883135e3efb83191
       size: 900
@@ -46,8 +46,8 @@ stages:
       md5: 2aabf8c3803b27f1f695636c0e19c68f
       size: 8
     - path: resources/test.txt
-      md5: 0d872534a672ff0d6162ad055e1a5d5d
-      size: 18
+      md5: bbc892ccebc2a459a6b02c9890bdcaed
+      size: 26
     - path: src_dvc/eval.py
       md5: dcb678be7a603615428d61d994c74120
       size: 946
@@ -57,5 +57,5 @@ stages:
           seed: 43
     outs:
     - path: metrics.json
-      md5: 5756b92843ea92d43b04b1a337c1d9f1
-      size: 53
+      md5: cc9c35c1ef29d94662bdfe9dd06ff866
+      size: 66
