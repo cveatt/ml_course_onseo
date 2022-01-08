@@ -1,0 +1,31 @@
+stages:
+  split:
+    cmd: python src_dvc/split.py
+    deps:
+    - resources/data.txt
+    - src_dvc/split.py
+    params:
+    - split
+    outs:
+    - resources/test.txt
+    - resources/train.txt
+  train:
+    cmd: python src_dvc/train.py
+    deps:
+    - resources/train.txt
+    - src_dvc/train.py
+    params:
+    - train
+    outs:
+    - resources/model.txt
+  eval:
+    cmd: python src_dvc/eval.py
+    deps:
+    - resources/model.txt
+    - resources/test.txt
+    - src_dvc/eval.py
+    params:
+    - eval
+    metrics:
+    - metrics.json:
+        cache: false
