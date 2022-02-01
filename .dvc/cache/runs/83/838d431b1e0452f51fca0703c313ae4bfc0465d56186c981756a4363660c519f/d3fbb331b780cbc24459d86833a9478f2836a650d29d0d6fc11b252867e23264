@@ -1,0 +1,19 @@
+cmd: python src_dvc/eval.py
+deps:
+- path: resources/model.txt
+  md5: 2aabf8c3803b27f1f695636c0e19c68f
+  size: 8
+- path: resources/test.txt
+  md5: 0d872534a672ff0d6162ad055e1a5d5d
+  size: 18
+- path: src_dvc/eval.py
+  md5: dcb678be7a603615428d61d994c74120
+  size: 946
+params:
+  params.yaml:
+    eval:
+      seed: 43
+outs:
+- path: metrics.json
+  md5: 5756b92843ea92d43b04b1a337c1d9f1
+  size: 53

@@ -1,0 +1,17 @@
+cmd: python src_dvc/train.py
+deps:
+- path: resources/train.txt
+  md5: 368e4ff9375ea97193de979ac436b77b
+  size: 14
+- path: src_dvc/train.py
+  md5: 51b7be03e2703e81883135e3efb83191
+  size: 900
+params:
+  params.yaml:
+    train:
+      seed: 43
+      positive_zero: true
+outs:
+- path: resources/model.txt
+  md5: 2aabf8c3803b27f1f695636c0e19c68f
+  size: 8

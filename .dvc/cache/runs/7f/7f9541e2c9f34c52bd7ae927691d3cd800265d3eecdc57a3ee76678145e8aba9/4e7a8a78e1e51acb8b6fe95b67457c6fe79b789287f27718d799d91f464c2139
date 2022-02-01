@@ -1,0 +1,20 @@
+cmd: python src_dvc/split.py
+deps:
+- path: resources/data.txt
+  md5: 7ca64e798aab16891e49a4e4c90b53df
+  size: 32
+- path: src_dvc/split.py
+  md5: 1b604e03063f563c9e60b158169f8696
+  size: 556
+params:
+  params.yaml:
+    split:
+      seed: 43
+      valid_size: 0.2
+outs:
+- path: resources/test.txt
+  md5: 0d872534a672ff0d6162ad055e1a5d5d
+  size: 18
+- path: resources/train.txt
+  md5: 3decbdeb286c9aca07ab9708aab1615e
+  size: 16
